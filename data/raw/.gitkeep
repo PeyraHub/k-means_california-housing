@@ -1,0 +1,15 @@
+import os
+import pandas as pd 
+
+url = "https://raw.githubusercontent.com/4GeeksAcademy/k-means-project-tutorial/main/housing.csv"
+save_path = "data/raw/df_raw.csv"
+
+project_root = os.getcwd()
+save_path = os.path.join(project_root, "data", "raw", "df_raw.csv")
+
+os.makedirs(os.path.dirname(save_path), exist_ok=True)
+
+df = pd.read_csv(url)
+df.to_csv(save_path, index=False)
+    
+print(f"df_raw saved at {save_path}")
